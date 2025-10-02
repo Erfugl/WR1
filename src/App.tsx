@@ -2,6 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+//import funfactdataJson from '/funfactdata.json'
+//const funfacts: funfactdata[] = funfactdataJson
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,9 +12,12 @@ function App() {
     <>
       <h1>Hello! My name is Erlend!!!</h1>
       <h3>I like movies, video games, reading, writing, drawing, painting, music... and so on...</h3>
-      <h2>A fun fact about me:</h2>
-      <p>I am related to a previous dictator of Guatemala: Kjell Laugerud</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Foto_oficial_de_Presidente_Kjell_Eugenio_Laugerud_Garcia.jpg/875px-Foto_oficial_de_Presidente_Kjell_Eugenio_Laugerud_Garcia.jpg" alt="Kjell Laugerud" />
+      <h2>Here are som fun facts about me!</h2>
+      <button>New fact</button>
+      <div id="fact">
+        <p>I am related to a previous dictator of Guatemala: Kjell Laugerud</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Foto_oficial_de_Presidente_Kjell_Eugenio_Laugerud_Garcia.jpg/875px-Foto_oficial_de_Presidente_Kjell_Eugenio_Laugerud_Garcia.jpg" alt="Kjell Laugerud" />
+      </div>
     </>
   )
 }
