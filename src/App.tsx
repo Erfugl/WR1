@@ -10,14 +10,19 @@ function App() {
 
   useEffect(() => {
     //Hente data fra funfactdata.json hint: fetch
+    let Interval = 0 || undefined
     fetch("/funfactdata.json")
       .then(result => result.json())
       .then(jsonResult => {
         const funFactsList: FunFact[] = jsonResult.funfacts
         setFunFact(randomFact(funFactsList))
-
-      })
-    //Sette et interval for å oppdatere et tilfeldig valg element. hint: setInterval
+        Interval = window.setInterval(() => {
+          setFunFact(randomFact(funFactsList))
+        }, 5000)
+      });
+    return () => {
+      clearInterval(Interval)
+    };
   }, [])
 
   function randomFact(factList: FunFact[]) {
@@ -33,8 +38,7 @@ function App() {
       <button>New fact</button>
       <div id="fact">
         <p>{funFact?.fact || "...loading"}</p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Foto_oficial_de_Presidente_Kjell_Eugenio_Laugerud_Garcia.jpg/875px-Foto_oficial_de_Presidente_Kjell_Eugenio_Laugerud_Garcia.jpg" alt="Kjell Laugerud" />
-        <p>{funFact?.img || "...loading"} </p>
+        <img id="image" src={funFact?.img || "...loading"} />
       </div>
     </>
   )
